@@ -19,21 +19,18 @@ app = FastAPI(
     version="1.0.0"
 )
 
-frontend_url = os.getenv(
-    "FRONTEND_URL"
-)
-
-
 origins = [
     "http://localhost:5173",
     "http://127.0.0.1:5173",
+    "https://chicago-investigative-copilot.vercel.app",
 ]
 
-
-if frontend_url:
-    origins.append(
-        frontend_url.rstrip("/")
-    )
+configured_frontend_urls = os.getenv("FRONTEND_URL", "")
+origins.extend(
+    origin.strip().rstrip("/")
+    for origin in configured_frontend_urls.split(",")
+    if origin.strip()
+)
 
 
 app.add_middleware(
