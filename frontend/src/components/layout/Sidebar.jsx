@@ -1,19 +1,9 @@
-import {
-  Database,
-  DatabaseZap,
-} from "lucide-react"
-
 import { NavLink } from "react-router"
 
 import { navigation } from "../../config/navigation"
 import chicagoLogo from "../../assets/chigago.png"
 
-import useSystemHealth
-  from "../../hooks/useSystemHealth"
-
 function SidebarPanel({ onMobileClose }) {
-  const { online, checking } = useSystemHealth()
-
   return (
     <>
 
@@ -165,142 +155,6 @@ function SidebarPanel({ onMobileClose }) {
 
       </nav>
 
-
-      <div
-  className="
-    border-t
-    border-[#1b2838]
-    p-4
-  "
->
-
-  <div
-    className={`
-      rounded-lg
-      border
-      p-3
-      transition-colors
-      duration-300
-
-      ${
-        checking
-          ? `
-            border-amber-500/15
-            bg-amber-500/[0.03]
-          `
-          : online
-            ? `
-              border-emerald-500/15
-              bg-emerald-500/[0.03]
-            `
-            : `
-              border-red-500/20
-              bg-red-500/[0.04]
-            `
-      }
-    `}
-  >
-
-    <div
-      className="
-        flex
-        items-center
-        gap-2
-      "
-    >
-
-      {online && !checking ? (
-
-        <Database
-          size={14}
-          className="
-            text-emerald-400
-          "
-        />
-
-      ) : (
-
-        <DatabaseZap
-          size={14}
-          className={
-            checking
-              ? "text-amber-400"
-              : "text-red-400"
-          }
-        />
-
-      )}
-
-
-      <span
-        className="
-          text-[10px]
-          font-medium
-          uppercase
-          tracking-[0.12em]
-          text-slate-400
-        "
-      >
-        Data Layer
-      </span>
-
-    </div>
-
-
-    <div
-      className="
-        mt-2
-        flex
-        items-center
-        gap-2
-      "
-    >
-
-      <div
-        className={`
-          h-1.5 w-1.5
-          rounded-full
-
-          ${
-            checking
-              ? "bg-amber-400"
-              : online
-                ? "bg-emerald-400"
-                : "bg-red-400"
-          }
-        `}
-      />
-
-
-      <span
-        className={`
-          text-[11px]
-
-          ${
-            checking
-              ? "text-amber-500"
-              : online
-                ? "text-emerald-500"
-                : "text-red-400"
-          }
-        `}
-      >
-
-        {
-          checking
-            ? "Checking data layer"
-            : online
-              ? "Analytical database ready"
-              : "Analytical database unavailable"
-        }
-
-      </span>
-
-    </div>
-
-  </div>
-
-</div>
 
       <div
         className="
