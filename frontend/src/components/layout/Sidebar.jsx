@@ -302,6 +302,36 @@ function SidebarPanel({ onMobileClose }) {
 
 </div>
 
+      <div
+        className="
+          border-t
+          border-[#1b2838]
+          px-4 py-3
+          text-center
+        "
+      >
+        <p
+          className="
+            text-[10px]
+            font-medium
+            text-slate-400
+          "
+        >
+          Réalisé par Salim Gouraguine
+        </p>
+
+        <p
+          className="
+            mt-1
+            text-[9px]
+            leading-relaxed
+            text-slate-600
+          "
+        >
+          M2 Intelligent System Engineering (Data Science)
+        </p>
+      </div>
+
     </>
   )
 }
