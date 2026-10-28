@@ -10,7 +10,10 @@ import useSystemHealth
   from "../../hooks/useSystemHealth"
 
 
-function Topbar({ onMenuClick }) {
+function Topbar({
+  onMenuClick,
+  onSearchClick,
+}) {
 
   const {
     online,
@@ -124,6 +127,8 @@ function Topbar({ onMenuClick }) {
 
           <button
             type="button"
+            aria-label="Open search"
+            onClick={onSearchClick}
             className="
               flex h-9 w-9
               items-center

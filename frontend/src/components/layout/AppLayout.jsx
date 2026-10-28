@@ -8,6 +8,7 @@ import {
 
 import Sidebar from "./Sidebar"
 import Topbar from "./Topbar"
+import SearchPalette from "./SearchPalette"
 
 
 function AppLayout() {
@@ -15,6 +16,10 @@ function AppLayout() {
   const [
     mobileSidebarOpen,
     setMobileSidebarOpen,
+  ] = useState(false)
+  const [
+    searchOpen,
+    setSearchOpen,
   ] = useState(false)
 
 
@@ -25,6 +30,16 @@ function AppLayout() {
 
   function closeMobileSidebar() {
     setMobileSidebarOpen(false)
+  }
+
+
+  function openSearch() {
+    setSearchOpen(true)
+  }
+
+
+  function closeSearch() {
+    setSearchOpen(false)
   }
 
 
@@ -45,6 +60,12 @@ function AppLayout() {
 
       <Topbar
         onMenuClick={openMobileSidebar}
+        onSearchClick={openSearch}
+      />
+
+      <SearchPalette
+        open={searchOpen}
+        onClose={closeSearch}
       />
 
 
